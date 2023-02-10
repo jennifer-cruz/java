@@ -25,13 +25,13 @@ public class ativ03 {
 
 		if (idade >= 60 && idade <= 69) {
 			if (primeira)
-				System.out.println("Não está apto para doar");
+				System.out.println(nome + "Não está apto para doar");
 			else
-				System.out.println("Está apto para doar!");
+				System.out.println(nome + "Está apto para doar!");
 		} else if (idade < 18 || idade > 69)
-			System.out.println("Não está apto para doar");
+			System.out.println(nome + "Não está apto para doar");
 		else
-			System.out.println("Está apto para doar!");
+			System.out.println(nome + "Está apto para doar!");
 
 		leia.close();
 	}
