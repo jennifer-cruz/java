@@ -14,7 +14,7 @@ public class Ativ04 {
 
 		for (int linha = 0; linha < matriz.length; linha++) {
 
-			for (int coluna = 0; coluna < matriz.length; coluna++) {
+			for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
 
 				System.out.println("Digite a nota: ");
 				matriz[linha][coluna] = leia.nextFloat();
