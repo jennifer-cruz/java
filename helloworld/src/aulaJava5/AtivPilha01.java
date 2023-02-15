@@ -1,35 +1,56 @@
 package aulaJava5;
 
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
+import java.util.Stack;
 
 public class AtivPilha01 {
 
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
-		Set<Integer> numero = new HashSet<Integer>();
 
-		int notas;
+		Stack<String> livros = new Stack<String>();
+		int opcao = 4;
+		String nomeLivro;
 
-		numero.add(2);
-		numero.add(5);
-		numero.add(1);
-		numero.add(3);
-		numero.add(4);
-		numero.add(9);
-		numero.add(7);
-		numero.add(8);
-		numero.add(10);
-		numero.add(6);
+		do {
+			System.out.println("1 - Adicionar Livro na pilha");
+			System.out.println("2 - Listar todos os Livros");
+			System.out.println("3 - Retirar Livro da Pilha");
+			System.out.println("0 - Sair");
+			System.out.println("Entre com a opção desejada:");
+			opcao = leia.nextInt();
 
-		System.out.println("Digite o número que você deseja encontrar: ");
-		notas = leia.nextInt();
+			switch (opcao) {
+			case 1:
+				System.out.println("Digite o nome: ");
+				leia.skip("\\R?");
+				nomeLivro = leia.nextLine();
+				livros.push(nomeLivro);
+				System.out.println("Pilha: ");
+				livros.forEach(System.out::println);
+				System.out.println("Livro adicionado!");
+				break;
 
-		if (notas > 10 || notas < 0)
-			System.out.println("Número não encontrado:  " + notas);
-		else
-			System.out.println("Número encontrado:  " + notas);
+			case 2:
+				System.out.println("Lista de Livros na Pilha: ");
+				livros.forEach(System.out::println);
+				break;
+
+			case 3:
+				if (livros.isEmpty())
+					System.out.println("A Pilha está vazia!");
+				else {
+
+					System.out.println("Pilha: ");
+					System.out.println(livros.pop());
+					System.out.println("O Livro foi retirado da pilha!");
+				}
+				break;
+			default:
+				System.out.println("Programa Finalizado!");
+
+			}
+		} while (opcao != 0);
 
 		leia.close();
 	}
